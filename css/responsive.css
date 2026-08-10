@@ -1,0 +1,179 @@
+/*
+ * responsive.css
+ * Media queries. Light airy UCD theme.
+ */
+
+/* ── Tablet: ≤ 980px ── */
+@media (max-width: 980px) {
+  .g2   { grid-template-columns: 1fr; }
+  .g2-3 { grid-template-columns: 1fr; }
+  .g3   { grid-template-columns: 1fr 1fr; }
+  .hdr-session-name { display: none; }
+  .sidebar { width: 220px; }
+
+  .kpi-grid,
+  .method-grid,
+  .testimonial-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .hero h1 { font-size: clamp(40px, 9vw, 64px); }
+}
+
+/* ── Mobile: ≤ 680px ── */
+@media (max-width: 680px) {
+  .sidebar {
+    position: fixed;
+    top: var(--hdr-h);
+    left: -260px;
+    height: calc(100vh - var(--hdr-h));
+    z-index: 350;
+    transition: left .25s ease;
+    box-shadow: var(--shadow-lg);
+    width: 250px;
+  }
+  .sidebar.open { left: 0; }
+
+  .shell { overflow: visible; height: auto; min-height: calc(100vh - var(--hdr-h)); }
+  .main  { padding: 1rem; overflow-y: auto; }
+
+  .hdr  { gap: var(--sp-2); }
+  .hdr-title  { font-size: 14px; }
+  .hdr-sub    { display: none; }
+
+  .hdr-btn { padding: 6px 10px; font-size: 10px; }
+
+  .g3 { grid-template-columns: 1fr; }
+  .sg { grid-template-columns: 1fr 1fr; }
+  .tree-viz { grid-template-columns: 1fr; }
+
+  table.mx th, table.mx td { padding: 5px 6px; font-size: 11px; }
+  table.mx td input[type=number] { width: 60px; }
+
+  .mode-toggle { flex-direction: column; }
+
+  .refine-section .btn-row { flex-direction: column; }
+  .refine-section .btn-row .btn { width: 100%; justify-content: center; }
+
+  .res-row { flex-wrap: wrap; }
+  .rbar-o  { flex: 0 0 100%; order: 3; margin-top: 4px; }
+
+  .scard-v { font-size: 16px; }
+
+  /* Landing */
+  .hero { min-height: 68vh; padding: 4rem 1rem 3rem; }
+  .landing-section { padding: 4rem 1rem; }
+  .kpi-grid, .method-grid, .testimonial-grid { grid-template-columns: 1fr; }
+  .cta-strip { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; margin: 0 1rem 3rem; }
+  .cta-text h3 { font-size: 22px; }
+  .hero-cta-row { flex-direction: column; align-items: stretch; width: 100%; max-width: 320px; margin: 0 auto; }
+  .start-btn { justify-content: center; }
+}
+
+/* ── Very small: ≤ 380px ── */
+@media (max-width: 380px) {
+  html   { font-size: 13px; }
+  .hdr   { padding: 0 .75rem; }
+  .main  { padding: .75rem; }
+  .card  { padding: 1rem; }
+  .modal { padding: 1.5rem; }
+}
+
+/* ── Large screens: ≥ 1200px ── */
+@media (min-width: 1200px) {
+  .sidebar { width: 275px; }
+  .main    { padding: 2rem 2.5rem; }
+}
+
+/* ── Print ── */
+@media print {
+  .hdr-btn,
+  .btn,
+  .sidebar,
+  .modal-overlay,
+  .toast,
+  .refine-section,
+  #btnSave,
+  #btnLoad,
+  #btnExport,
+  #fileInput,
+  #sens-sliders,
+  .btn-row { display: none !important; }
+
+  /* Only print the active pane */
+  .pane:not(.active) { display: none !important; }
+  .pane.active       { display: block !important; animation: none !important; }
+
+  .shell   { display: block; height: auto; overflow: visible; }
+  .main    { overflow: visible; padding: 0; }
+
+  /* Print header  -  hidden on screen, visible on print */
+  #print-header { display: block !important; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 16px; }
+
+  body { background: white; color: black; font-size: 12px; }
+
+  .card {
+    box-shadow: none;
+    border: 1px solid #ccc;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .breakdown-wrap { page-break-before: always; }
+
+  table.mx,
+  table.breakdown { font-size: 11px; border: 1px solid #ccc; }
+
+  .hdr {
+    background: white;
+    color: black;
+    border-bottom: 2px solid black;
+    position: static;
+  }
+  .hdr::before { display: none; }
+  .hdr-logo { border-color: black; color: black; box-shadow: none; }
+  .hdr-title, .hdr-sub { color: black; }
+  .hdr-sub { opacity: .6; }
+
+  .ibar { background: #f5f5f5; border-color: #999; color: #333; }
+
+  svg text { fill: black !important; }
+
+  @page {
+    margin: 15mm;
+    size: A4;
+  }
+}
+
+
+/* UCD logo responsive header fix */
+.hdr-left{
+    display:flex !important;
+    align-items:center !important;
+    gap:18px !important;
+}
+
+.hdr-logo,
+.hdr-logo-wrapper{
+    background:none !important;
+    border:none !important;
+    box-shadow:none !important;
+    padding:0 !important;
+    margin:0 !important;
+    width:auto !important;
+    height:auto !important;
+    min-width:auto !important;
+}
+
+.hdr-logo-img{
+    display:block !important;
+    width:auto !important;
+    height:clamp(50px, 7vh, 80px) !important;
+    max-width:none !important;
+    object-fit:contain !important;
+    object-position:center center !important;
+    flex-shrink:0 !important;
+}
+
+.hdr-left > div:last-child{
+    flex:1 !important;
+    min-width:0 !important;
+}

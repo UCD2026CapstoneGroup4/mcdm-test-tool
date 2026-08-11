@@ -1,0 +1,124 @@
+/*
+ * tokens.css
+ * Design tokens for DISC-MCDM Tool  -  Light Airy UCD Theme
+ * Palette: white, soft blue, light green
+ */
+
+:root {
+  /* ── Backgrounds ── */
+  --bg:         #F5F8FF;
+  --bg2:        #EEF3FB;
+  --bg3:        #E4EDF8;
+  --surface:    #FFFFFF;
+  --surface2:   #EBF2FF;
+  --surface3:   #D6E6FF;
+
+  /* ── Text (ink) ── */
+  --ink:        #0D1F3C;
+  --ink2:       #2C4470;
+  --ink3:       #3D5E8A;
+  --ink4:       #3D5E8A;
+
+  /* ── Accent (primary blue) ── */
+  --accent:     #1A5276;
+  --accent2:    #134060;
+  --accent-l:   rgba(26,82,118,.12);
+  --accent-glow: 0 0 16px rgba(26,82,118,.18);
+
+  /* ── Success / valid ── */
+  --green:      #1A5276;
+  --green-l:    rgba(26,82,118,.12);
+
+  /* ── Borders ── */
+  --border:     rgba(13,31,60,.09);
+  --border2:    rgba(13,31,60,.05);
+  --border-acc: rgba(43,127,212,.25);
+
+  /* ── Status ── */
+  --warn:       #E07B1A;
+  --warn-l:     rgba(224,123,26,.10);
+  --error:      #C42B2B;
+  --error-l:    rgba(217,54,54,.10);
+
+  /* ── Tier colors (Step 3 squares) ── */
+  --tier-somatic:   #1A5276;
+  --tier-psychic:   #A85200;
+  --tier-pneumatic: #1A7A6E;
+
+  /* ── Badge backgrounds + text ── */
+  --badge-s-bg: #D0E4F0;  --badge-s-fg: #1A5276;
+  --badge-p-bg: #FFE4CC;  --badge-p-fg: #A85200;
+  --badge-n-bg: #CCE8E4;  --badge-n-fg: #1A7A6E;
+
+  /* ── Shadow ── */
+  --shadow-sm:  0 1px 2px rgba(13,31,60,.04), 0 1px 3px rgba(13,31,60,.05);
+  --shadow-md:  0 6px 20px rgba(13,31,60,.06);
+  --shadow-lg:  0 18px 48px rgba(13,31,60,.10);
+
+  /* ── Radius ── */
+  --r:          4px;
+  --rl:         8px;
+  --rx:         12px;
+
+  /* ── Typography ── */
+  --font-head:  'Rajdhani', 'Inter', -apple-system, sans-serif;
+  --font-sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono:  'JetBrains Mono', 'DM Mono', 'Fira Mono', monospace;
+  /* legacy aliases (do not remove  -  used by old rules) */
+  --font-serif: var(--font-head);
+
+  /* ── Spacing ── */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-8: 32px;
+
+  /* ── Transition ── */
+  --transition: all 0.18s ease;
+
+  /* ── Header height ── */
+  --hdr-h: 60px;
+
+  /* ── UCD Smurfit campus image (swap with your provided file) ──
+     Replace the URL below with: url('assets/ucd-smurfit.jpg') after dropping
+     your image into /assets. */
+  --campus-img: url('../assets/Smurfit_Building.jpg');
+}
+
+
+/* UCD logo responsive header fix */
+.hdr-left{
+    display:flex !important;
+    align-items:center !important;
+    gap:18px !important;
+}
+
+.hdr-logo,
+.hdr-logo-wrapper{
+    background:none !important;
+    border:none !important;
+    box-shadow:none !important;
+    padding:0 !important;
+    margin:0 !important;
+    width:auto !important;
+    height:auto !important;
+    min-width:auto !important;
+}
+
+.hdr-logo-img{
+    display:block !important;
+    width:auto !important;
+    height:clamp(50px, 7vh, 80px) !important;
+    max-width:none !important;
+    object-fit:contain !important;
+    object-position:center center !important;
+    flex-shrink:0 !important;
+}
+
+.hdr-left > div:last-child{
+    flex:1 !important;
+    min-width:0 !important;
+}
